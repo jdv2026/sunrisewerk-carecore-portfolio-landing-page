@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareCore — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:      #4f6ef7;
+      --primary-dark: #3a56d4;
+      --surface:      #0f1117;
+      --surface-2:    #181c27;
+      --surface-3:    #1e2333;
+      --border:       rgba(255,255,255,0.08);
+      --text:         #f0f2ff;
+      --muted:        #8891b0;
+      --radius:       12px;
+      --radius-lg:    20px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--surface);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 24px 80px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(79,110,247,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(79,110,247,0.15);
+      border: 1px solid rgba(79,110,247,0.3);
+      color: #8ba4ff;
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .badge .material-icons-round { font-size: 15px; }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff 30%, #8ba4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      max-width: 720px;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .pill {
+      background: var(--surface-3);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── LINKS GRID ── */
+    .links {
+      padding: 0 24px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .link-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .link-card:hover {
+      border-color: rgba(79,110,247,0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(79,110,247,0.12);
+    }
+
+    .link-card .icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .link-card .material-icons-round { font-size: 24px; }
+
+    .link-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .link-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .link-card .arrow {
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .link-card .arrow:hover { color: #8ba4ff; }
+    .link-card .arrow .material-icons-round { font-size: 16px; }
+
+    /* icon colors per card */
+    .card-live   .icon-wrap { background: rgba(79,110,247,0.15); color: #8ba4ff; }
+    .card-github .icon-wrap { background: rgba(255,255,255,0.07); color: #c9d1e0; }
+    .card-figma  .icon-wrap { background: rgba(255,116,77,0.12);  color: #ff8a65; }
+    .card-youtube .icon-wrap { background: rgba(255,59,59,0.12);  color: #ff6b6b; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    footer a { color: #8ba4ff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="badge">
+      <span class="material-icons-round">work_outline</span>
+      Portfolio Project
+    </span>
+    <h1>CareCore Scheduler</h1>
+    <p>A full-stack clinic scheduling platform built with Angular, Laravel, and AWS — featuring multi-tenant support, staff management, and real-time appointment booking.</p>
+    <div class="tech-pills">
+      <span class="pill">Angular 19</span>
+      <span class="pill">Laravel</span>
+      <span class="pill">AWS EC2</span>
+      <span class="pill">AWS RDS</span>
+      <span class="pill">Cognito</span>
+      <span class="pill">API Gateway</span>
+      <span class="pill">TypeScript</span>
+    </div>
+  </section>
+
+  <!-- LINK CARDS -->
+  <div class="links">
+
+    <div class="link-card card-live">
+      <div class="icon-wrap">
+        <span class="material-icons-round">open_in_new</span>
+      </div>
+      <h3>Live Demo</h3>
+      <p>Explore the deployed applications hosted on AWS.</p>
+      <a href="https://appointment.sunrisewerk.com" target="_blank" rel="noopener" class="arrow">
+        Patient App <span class="material-icons-round">arrow_forward</span>
+      </a>
+      <a href="https://www.sunrisewerk.com" target="_blank" rel="noopener" class="arrow">
+        Admin &amp; Staff <span class="material-icons-round">arrow_forward</span>
+      </a>
+    </div>
+
+    <a href="https://github.com/orgs/jdv2026/repositories" target="_blank" rel="noopener" class="link-card card-github">
+      <div class="icon-wrap">
+        <span class="material-icons-round">code</span>
+      </div>
+      <h3>GitHub</h3>
+      <p>Browse the source code, commit history, and architecture.</p>
+      <span class="arrow">View repo <span class="material-icons-round">arrow_forward</span></span>
+    </a>
+
+    <a href="https://www.figma.com/board/mYG2XUMIa30Ue1xdm299pa/Untitled?node-id=0-1&t=gjfze6laQH235Zwz-1" target="_blank" rel="noopener" class="link-card card-figma">
+      <div class="icon-wrap">
+        <span class="material-icons-round">design_services</span>
+      </div>
+      <h3>Figma Design</h3>
+      <p>See the design system, wireframes, and component library.</p>
+      <span class="arrow">Open Figma <span class="material-icons-round">arrow_forward</span></span>
+    </a>
+
+    <a href="https://youtu.be/7CYdKXU0zyg" target="_blank" rel="noopener" class="link-card card-youtube">
+      <div class="icon-wrap">
+        <span class="material-icons-round">play_circle</span>
+      </div>
+      <h3>YouTube Demo</h3>
+      <p>Watch a full walkthrough of the features and user flows.</p>
+      <span class="arrow">Watch video <span class="material-icons-round">arrow_forward</span></span>
+    </a>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    Built by <a href="https://github.com/orgs/jdv2026/repositories">John Dennis Vistal</a> &nbsp;·&nbsp; Hosted on AWS
+  </footer>
+
+</body>
+</html>
